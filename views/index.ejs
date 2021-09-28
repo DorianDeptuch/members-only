@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="grey lighten-4">
+    <%- include("./partials/header.ejs") %>
+    <% if (typeof user != 'undefined'){ %>
+      <div class="center white z-depth-2" style="width: clamp(40%, 10rem, 80%); margin: 2rem auto; padding: 0.25rem 0;" >
+        <p class="center">Logged in as: &nbsp; <strong><%= typeof user != 'undefined' ? user.username : '' %></strong></p>
+      </div>
+      <!-- <button class="btn-floating pulse green btn-small"></button> -->
+    <% } else {%>
+    
+      <%}%>
+    <div class="container">
+      <% post_list.forEach(post => { %>
+        <div class="card">
+          <div class="card-content row">
+            <div class="avatar col l3">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" style="height: 150px; width: 150px;">
+              <% if (user.isVerified) { %>
+                <p>Username: <strong><%= post.author %></strong></p>
+                <p>Created: <strong><%= post.date_formatted %></strong></p>
+                <% if (user.isAdmin){ %>
+                  <a href="/delete" class="left">
+                    <button class="btn-small red red-text text-lighten-4">delete</button>
+                  </a>
+                <% } else { %>
+                <% } %>
+              <% } else { %>
+                <p title="Become verified to see this content">Username: <strong>Hidden</strong> </p>
+                <p title="Become verified to see this content">Created: <strong>Hidden</strong></p>
+              <% } %>
+            </div>
+            <div class="text col l7">
+              <span class="card-title"><%= post.title %></span>
+              <p><%= post.message %></p>
+              
+            </div>
+          </div>
+        </div>
+      <% }); %>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <%- include("./partials/header.ejs") %>
+
+    <div class="container">
+      <div class="card">
+        <h3 class="center">Log In</h3>
+
+        <form method="POST" action="log-in" style="width: 50%; margin: 0 auto" class="card-content">
+        <%- include("./partials/messages") %>
+
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="username" name="username" required/>
+            <label for="username">Username</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="password" name="password" required/>
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field center-align">
+            <input type="submit" class="btn ">
+          </div>
+        </form>
+        <p class="center-align">Haven't created an account yet? <a href="/sign-up">Sign up</a></p>
+
+      </div>
+  </div>
+  </body>
+</html>

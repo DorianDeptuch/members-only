@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <%- include("./partials/header.ejs") %>
+
+    <div class="container">
+      <div class="card">
+        <h3 class="center">Become An Admin</h3>
+
+        <form method="POST" action="admin" style="width: 50%; margin: 0 auto" class="card-content">
+        <%- include("./partials/messages") %>
+          <p></p>
+          <p>Becoming an admin will give you the ability to delete posts</p>
+          <div class="input-field">
+            <i class="material-icons prefix">verified</i>
+            <input type="text" id="admin" name="admin" required/>
+            <label for="admin">Submit your answer</label>
+          </div>
+          
+          <div class="input-field center-align">
+            <input type="submit" class="btn ">
+          </div>
+        </form>
+      </div>
+  </div>
+  </body>
+</html>

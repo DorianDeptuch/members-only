@@ -1,0 +1,77 @@
+<header>
+  <nav class="nav-wrapper row">
+    <div class="brand-logo col s6 l6">
+      <a title="Home" href="/">Members Only</a>
+    </div>
+    <ul class="right col s6 l6">
+
+      <% if (typeof user != 'undefined'){ %>
+      <li>
+        <a class="text-white col" href="/new-post">
+          <i title="Create a Post" class="material-icons prefix">post_add</i>
+          <!-- <span class="left-align">New Post</span> -->
+        </a>
+      </li>
+      <% } else {%>
+      
+        <%}%>
+
+      <% if (typeof user != 'undefined' && !user.isVerified){ %>
+      <li>
+        <a class="text-white col" href="/verified">
+          <i title="Become Verified" class="material-icons prefix">check_circle</i>
+          <!-- <span class="left-align">Become an Admin</span> -->
+        </a>
+      </li>
+      <% } else {%>
+      
+        <%}%>
+
+      <% if (typeof user != 'undefined' && user.isVerified && !user.isAdmin){ %>
+      <li>
+        <a class="text-white col" href="/admin">
+          <i title="Become an Admin"class="material-icons prefix">verified</i>
+          <!-- <span class="left-align">Become Verified</span> -->
+        </a>
+      </li>
+      <% } else {%>
+      
+        <%}%>
+
+      <% if (typeof user == 'undefined'){ %>
+
+      <li>
+        <a class="text-white col" href="/sign-up">
+          <i title="Sign Up" class="material-icons prefix">launch</i>
+          <!-- <span class="left-align">Sign Up</span> -->
+        </a>
+      </li>
+      <% } else {%>
+      
+      <%}%>
+
+      <% if (typeof user == 'undefined'){ %>
+      <li>
+        <a class="text-white" href="/log-in">
+          <i title="Log In"class="material-icons prefix">login</i>
+          <!-- <span class="left-align">Log In</span> -->
+        </a>
+      </li>
+      <% } else {%>
+      
+        <%}%>
+
+      <% if (typeof user != 'undefined'){ %>
+        <li>
+          <a class="text-white" href="/logout">
+            <i title="Logout" class="material-icons prefix">logout</i>
+            <!-- <span class="left-align">Log Out</span> -->
+          </a>
+        </li>
+      <%} else {%>
+       
+        <% } %>
+    </ul>
+  </nav>
+
+</header>

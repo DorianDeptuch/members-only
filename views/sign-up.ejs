@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <%- include("./partials/header.ejs") %>
+
+    <div class="container">
+    
+      <div class="card">
+        <h3 class="center">Sign Up</h3>
+
+        <form method="POST" action="sign-up" style="width: 50%; margin: 0 auto" class="card-content">
+        <%- include("./partials/messages") %>
+
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="username" name="username" value="<%= typeof username != 'undefined' ? username : '' %>" required/>
+            <label for="username">Username</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" required/>
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="confirmPassword" name="confirmPassword" required/>
+            <label for="confirmPassword">Confirm Password</label>
+          </div>
+          <div class="input-field center-align">
+            <button type="submit" class="btn ">Submit</button>
+          </div>
+        </form>
+        <p class="center-align">Have an account already? <a href="/log-in">Log in</a></p>
+      </div>
+  </div>
+  </body>
+</html>
