@@ -22,16 +22,22 @@
                   <p>Username: <strong><%= post.author %></strong></p>
                   <p>Created: <strong><%= post.date_formatted %></strong></p>
                   <% if (user.isAdmin){ %>
-                    <a href="/delete" class="left">
-                      <button class="btn-small red red-text text-lighten-4">delete</button>
-                    </a>
+
+                    <form action="<%= post.id %>?_method=DELETE" method="POST">
+                      <input type="hidden" id="postid" name="postid" required="true" value='<%= post._id %>'>
+                      <button class="btn-small red red-text text-lighten-4" type="submit">DELETE</button>
+                    </form>
                   <% } else { %>
+                    
                   <% } %>
                 <% } else { %>
                   <p title="Become verified to see this content">Username: <strong>Hidden</strong> </p>
                   <p title="Become verified to see this content">Created: <strong>Hidden</strong></p>
                 <% } %>
-              <% } %>
+              <% } else { %>
+                <p title="Become verified to see this content">Username: <strong>Hidden</strong> </p>
+                <p title="Become verified to see this content">Created: <strong>Hidden</strong></p>
+                <% } %>
             </div>
             <div class="text col l7">
               <span class="card-title"><%= post.title %></span>
@@ -43,5 +49,6 @@
       <% }); %>
       
     </section>
+    <%- include("./partials/footer") %>
   </body>
 </html>

@@ -10,6 +10,7 @@ let mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const methodOverride = require("method-override");
 
 require("./config/passport")(passport);
 
@@ -25,6 +26,7 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 // Require static assets from public folder
 app.use(express.static(path.join(__dirname, "public")));
