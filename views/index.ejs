@@ -11,24 +11,26 @@
     <% } else {%>
     
       <%}%>
-    <div class="container">
+    <section class="container">
       <% post_list.forEach(post => { %>
         <div class="card">
           <div class="card-content row">
             <div class="avatar col l3">
               <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar" style="height: 150px; width: 150px;">
-              <% if (user.isVerified) { %>
-                <p>Username: <strong><%= post.author %></strong></p>
-                <p>Created: <strong><%= post.date_formatted %></strong></p>
-                <% if (user.isAdmin){ %>
-                  <a href="/delete" class="left">
-                    <button class="btn-small red red-text text-lighten-4">delete</button>
-                  </a>
+              <% if (user) { %>
+                <% if (user.isVerified) { %>
+                  <p>Username: <strong><%= post.author %></strong></p>
+                  <p>Created: <strong><%= post.date_formatted %></strong></p>
+                  <% if (user.isAdmin){ %>
+                    <a href="/delete" class="left">
+                      <button class="btn-small red red-text text-lighten-4">delete</button>
+                    </a>
+                  <% } else { %>
+                  <% } %>
                 <% } else { %>
+                  <p title="Become verified to see this content">Username: <strong>Hidden</strong> </p>
+                  <p title="Become verified to see this content">Created: <strong>Hidden</strong></p>
                 <% } %>
-              <% } else { %>
-                <p title="Become verified to see this content">Username: <strong>Hidden</strong> </p>
-                <p title="Become verified to see this content">Created: <strong>Hidden</strong></p>
               <% } %>
             </div>
             <div class="text col l7">
@@ -40,6 +42,6 @@
         </div>
       <% }); %>
       
-    </div>
+    </section>
   </body>
 </html>
