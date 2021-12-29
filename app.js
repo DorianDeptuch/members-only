@@ -8,7 +8,8 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 let mongoose = require("mongoose");
 const flash = require("connect-flash");
-const session = require("express-session");
+// const session = require("express-session"); // Heroku didn't like this, changed to cookie-session
+const session = require("cookie-session");
 const passport = require("passport");
 const methodOverride = require("method-override");
 
