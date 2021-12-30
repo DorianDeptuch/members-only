@@ -48,7 +48,10 @@ app.use(
     resave: true,
     saveUninitialized: true,
     //connect-mongo 3.2.0
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      mongoUrl: db,
+    }),
     //latest connect mongo version
     // store: MongoStore.create({
     //   mongoUrl: db,
