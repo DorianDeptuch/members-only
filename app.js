@@ -43,8 +43,16 @@ app.use(
   session({
     secret: "secret",
     resave: true,
-    store: MongoStore.create({ mongoUrl: db }),
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: db,
+      mongooseConnection: mongoose.connection,
+      ttl: 14 * 24 * 60 * 60, // save session for 14 days
+    }),
+    cookie: {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 14, // expires in 14 days
+    },
   })
 );
 
