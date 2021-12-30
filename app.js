@@ -46,7 +46,7 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: db,
-      mongooseConnection: mongoose.connection,
+      // mongooseConnection: mongoose.connection,
       ttl: 14 * 24 * 60 * 60, // save session for 14 days
     }),
     cookie: {
