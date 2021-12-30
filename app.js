@@ -10,7 +10,10 @@ let mongoose = require("mongoose");
 const flash = require("connect-flash");
 // const session = require("express-session"); // Heroku didn't like this, changed to cookie-session
 const session = require("cookie-session");
-const MongoStore = require("connect-mongo");
+//connect-mongo 3.2.0
+const MongoStore = require("connect-mongo")(session);
+//latest connect mongo
+// const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const methodOverride = require("method-override");
 
@@ -44,11 +47,14 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: db,
-      // mongooseConnection: mongoose.connection,
-      ttl: 14 * 24 * 60 * 60, // save session for 14 days
-    }),
+    //connect-mongo 3.2.0
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    //latest connect mongo version
+    // store: MongoStore.create({
+    //   mongoUrl: db,
+    //   // mongooseConnection: mongoose.connection,
+    //   ttl: 14 * 24 * 60 * 60, // save session for 14 days
+    // }),
     cookie: {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 14, // expires in 14 days
