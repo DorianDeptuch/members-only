@@ -1,8 +1,5 @@
 # members-only
 
-
-# blog-api
-
 This project was done as part of [The Odin Project](https://www.theodinproject.com)'s Foundation Course.
 
 ## Live Preview
