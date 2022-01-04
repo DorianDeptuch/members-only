@@ -10,10 +10,6 @@ let mongoose = require("mongoose");
 const flash = require("connect-flash");
 // const session = require("express-session"); // Heroku didn't like this, changed to cookie-session
 const session = require("cookie-session");
-//connect-mongo 3.2.0
-// const MongoStore = require("connect-mongo")(session);
-//latest connect mongo
-// const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const methodOverride = require("method-override");
 
