@@ -47,17 +47,6 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    // //connect-mongo 3.2.0
-    // // store: new MongoStore({
-    // //   mongooseConnection: mongoose.connection,
-    // //   mongoUrl: db,
-    // // }),
-    // //latest connect mongo version
-    // store: new MongoStore({
-    //   mongoUrl: db,
-    //   // mongooseConnection: mongoose.connection,
-    //   ttl: 14 * 24 * 60 * 60, // save session for 14 days
-    // }),
     cookie: {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 14, // expires in 14 days
